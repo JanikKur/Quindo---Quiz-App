@@ -20,7 +20,8 @@ export default function Register() {
       return;
     }
     try {
-      registerUser(usernameRef.current.value,emailRef.current.value, passwordRef.current.value);
+      await registerUser(usernameRef.current.value,emailRef.current.value, passwordRef.current.value);
+      alert('Daten wurden erfolgreich aktualisiert');
     }
     catch (err) {
       alert("Leider ist ein Fehler aufgetreten, bitte versuche es erneut")

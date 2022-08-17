@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../assets/styles/quiz.css';
 import QuestionIndex from '../components/QuestionIndex';
-import {MdOutlineFavoriteBorder, MdOutlineFavorite} from 'react-icons/md';
 import { useUser } from '../contexts/UserContext';
 import QuizTitle from '../components/QuizTitle';
 import QuestionBox from '../components/QuestionBox';
@@ -13,7 +12,7 @@ import FavorizationButton from '../components/FavorizationButton';
 
 export default function Quiz() {
 
-  const { currentUser, toggleFavorization, isFavorized } = useUser();
+  const { currentUser } = useUser();
 
   const [loading,setLoading] = useState(true)
 
