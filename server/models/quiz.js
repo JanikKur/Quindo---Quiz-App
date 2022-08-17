@@ -26,10 +26,6 @@ const QuizSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    titleImage:{
-        type: String,
-        required: true
-    },
     plays: {
         type: Number,
         required: false,

@@ -54,7 +54,7 @@ export default function Quiz() {
   return (
     <main className='quiz'>
       {currentUser && <section className='quiz-interaction-buttons'>
-        <button className='favourite-button' onClick={() => toggleFavorization(quizData.id)}>{isFavorized() ? <MdOutlineFavorite className='icon'/> : <MdOutlineFavoriteBorder className='icon'/>}</button>
+        <button className='favourite-button' onClick={() => toggleFavorization(quizData.id)}>{isFavorized(quizData.id) ? <MdOutlineFavorite className='icon'/> : <MdOutlineFavoriteBorder className='icon'/>}</button>
       </section>}
       <QuizTitle title={quizData.title} author={author || 'gelöschter Nutzer'}/>
       <section className='quiz-game'>

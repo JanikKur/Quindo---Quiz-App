@@ -67,14 +67,14 @@ module.exports.updateUserById = async (req, res) => {
             try{
                 await comparePasswords(req.body.oldPassword, userPassword.password);
                 const newPassword = await hashPassword(req.body.password);
-                user = await User.updateOne({ id: req.params.id }, { $set: {...req.body, password: newPassword} });
+                user = await User.updateOne({ id: req.params.id }, { $set: {...req.body, profileImage: req.body.fileLinks[0], password: newPassword} });
             }catch(err){
                 return res.status(400).json({ err });
             }
         }
         else{
-            delete req.body.password;
-            user = await User.updateOne({ id: req.params.id }, { $set: req.body });
+            req.body.password && delete req.body.password;
+            user = await User.updateOne({ id: req.params.id }, { $set: {...req.body,  profileImage: req.body.fileLinks[0]} });
         }
         
         res.status(200).json({ user });

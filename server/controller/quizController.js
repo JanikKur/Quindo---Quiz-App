@@ -56,7 +56,7 @@ module.exports.getQuizesByIds = async (req, res) => {
 //GET BY AUTHOR
 module.exports.getQuizesByAuthor = async (req, res) => {
     try {
-        const quizes = await Quiz.find({ author: req.params.id }, {}, { sort: { date: -1 } }).skip(req.skipIndex).limit(req.limit);
+        const quizes = await Quiz.find({ author: req.params.author }, {}, { sort: { date: -1 } }).skip(req.skipIndex).limit(req.limit);
         res.status(200).json({ quizes });
     }
     catch (err) {
@@ -90,10 +90,12 @@ module.exports.updateQuizById = async (req, res) => {
 //ADD
 module.exports.addQuiz = async (req, res) => {
     try {
-        console.log('====================================');
-        console.log(req.body);
-        console.log('====================================');
-        const quiz = await Quiz.create({ ...req.body, author: req.user.id });
+        const quizData = {};
+        for(let key in req.body){
+            quizData[key] = JSON.parse(req.body[key]);
+        }
+        const quiz = await Quiz.create({ ...quizData, author: req.user.id });
+        console.log(quiz);
         res.status(201).json({ quiz });
     }
     catch (err) {

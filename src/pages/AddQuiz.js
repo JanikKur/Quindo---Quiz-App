@@ -27,15 +27,12 @@ export default function AddQuiz() {
             category: categoryRef.current.value,
             tags: tagRef.current.value.split(' '),
             visibility: isPublicRef.current.checked ? 'public' : 'private',
-            plays: 0,
             questions: questions
         }
-        const formData = new FormData();
-        formData.append('obj', JSON.stringify(quiz));
         try{
-            await addQuizService(formData);
+            await addQuizService(quiz);
             alert("Das Quiz wurde erfolgreich hinzugefügt");
-            window.location.reload();
+            //window.location.reload();
         }
         catch(e){
             alert("Leider gab es einen Fehler, bitte versuche es erneut");

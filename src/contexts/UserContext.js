@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { remove } from '../utils/removeElement';
 
 import { logoutUser, validateUser, loginUser as loginUserService, registerUser as registerUserService, updateUser, deleteUser as deleteUserService, favorizeQuiz as favorizeQuizService, unfavorizeQuiz as unfavorizeQuizService } from '../services/user';
+import { getQuizesByAuthor } from '../services/quiz';
 const UserContext = React.createContext();
 
 export function useUser() {
@@ -75,7 +76,7 @@ export function UserProvider({ children }) {
             return;
         }
         try {
-            const result = await updateUser(currentUser._id, newData);
+            const result = await updateUser(currentUser.id, newData);
             if (result.status === 200) {
                 setCurrentUser(prev => {return {...prev, ...newData}});
                 navigate('/settings');
@@ -88,7 +89,7 @@ export function UserProvider({ children }) {
 
     async function deleteUser(){
         try{
-            const result = await deleteUserService(currentUser._id);
+            const result = await deleteUserService(currentUser.id);
             if (result.status === 200) {
                 await logout();
             }
@@ -101,8 +102,8 @@ export function UserProvider({ children }) {
         try{
             await favorizeQuizService(quizId);
             setCurrentUser(prev => {
-                if(!prev.subscriptions.includes(quizId)) {
-                    prev.subscriptions.push(quizId);
+                if(!prev.favorites.includes(quizId)) {
+                    prev.favorites.push(quizId);
                 }
                 return {...prev};
             });
@@ -116,7 +117,7 @@ export function UserProvider({ children }) {
         try{
             await unfavorizeQuizService(quizId);
             setCurrentUser(prev => {
-                prev.subscriptions = remove(prev.subscriptions, quizId);
+                prev.favorites = remove(prev.favorites, quizId);
                 return {...prev};
             });
         }

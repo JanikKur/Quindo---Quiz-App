@@ -10,15 +10,15 @@ export async function getQuizById({id}){
 }
 
 export async function getQuizesByIds({ids}){
-    return axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/quiz/ids/${JSON.stringify(ids)}`);
+    return axios.get(`${backendLink}/quiz/ids/${JSON.stringify(ids)}`);
 }
 
 export async function getQuizesByAuthor({authorId}){
-    return axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/quiz/author/${authorId}`);
+    return axios.get(`${backendLink}/quiz/author/${authorId}`);
 }
 
 export async function getQuizesByTags({tags}){
-    return axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/quiz/tags/${JSON.stringify(tags)}`);
+    return axios.get(`${backendLink}/quiz/tags/${JSON.stringify(tags)}`);
 }
 
 export async function updateQuiz(quizId, newData){
@@ -26,13 +26,17 @@ export async function updateQuiz(quizId, newData){
     for (let elem in newData) {
         formData.append(elem, newData[elem]);
     }
-    return axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/v1/quiz/${quizId}`, formData, { withCredentials: true, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+    return axios.put(`${backendLink}/quiz/${quizId}`, formData, { withCredentials: true, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 }
 
-export async function addQuiz(){
-    
+export async function addQuiz(quiz){
+    let formData = new FormData();
+    for(let key in quiz){
+        formData.append(key, JSON.stringify(quiz[key]));
+    }
+    return axios.post(`${backendLink}/quiz/`, formData, { withCredentials: true, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 }
 
 export async function deleteQuiz(id){
-    return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/quiz/${id}`, { withCredentials: true, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+    return axios.delete(`${backendLink}/quiz/${id}`, { withCredentials: true, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 }
