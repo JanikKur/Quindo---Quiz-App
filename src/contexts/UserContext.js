@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { remove } from '../utils/removeElement';
 
 import { logoutUser, validateUser, loginUser as loginUserService, registerUser as registerUserService, updateUser, deleteUser as deleteUserService, favorizeQuiz as favorizeQuizService, unfavorizeQuiz as unfavorizeQuizService } from '../services/user';
-import { getQuizesByAuthor } from '../services/quiz';
+
 const UserContext = React.createContext();
 
 export function useUser() {

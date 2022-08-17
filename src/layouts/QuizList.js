@@ -12,15 +12,18 @@ export default function QuizList({title, method, options, limit = 4, fallBackTex
 
   useEffect(() => {
     setLoading(true);
+    updateQuizes();
+  },[page]);
+
+  function updateQuizes(){
     method({...options, page, limit}).then(response => {
       if(!response.data.quizes.length){
         setMoreResponse(false);
       }
-      setQuizes([...quizes, ...response.data.quizes]);
+      setQuizes(prev => [...quizes, ...response.data.quizes]);
       setLoading(false)
     });
-    
-  },[method, options, limit, page]);
+  }
 
   return (
       <section className='quizlist-wrapper'>

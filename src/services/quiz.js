@@ -9,16 +9,16 @@ export async function getQuizById({id}){
     return axios.get(`${backendLink}/quiz/id/${id}`);
 }
 
-export async function getQuizesByIds({ids}){
-    return axios.get(`${backendLink}/quiz/ids/${JSON.stringify(ids)}`);
+export async function getQuizesByIds({ids, limit, page}){
+    return axios.get(`${backendLink}/quiz/ids/${JSON.stringify(ids)}?limit=${limit}&page=${page}`);
 }
 
-export async function getQuizesByAuthor({authorId}){
-    return axios.get(`${backendLink}/quiz/author/${authorId}`);
+export async function getQuizesByAuthor({authorId, limit, page}){
+    return axios.get(`${backendLink}/quiz/author/${authorId}?limit=${limit}&page=${page}`);
 }
 
-export async function getQuizesByTags({tags}){
-    return axios.get(`${backendLink}/quiz/tags/${JSON.stringify(tags)}`);
+export async function getQuizesByTags({tags, limit, page}){
+    return axios.get(`${backendLink}/quiz/tags/${JSON.stringify(tags)}?limit=${limit}&page=${page}`);
 }
 
 export async function updateQuiz(quizId, newData){

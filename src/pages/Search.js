@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {useLocation} from 'react-router-dom';
 import SearchContainer from '../components/SearchContainer';
 import '../assets/styles/search.css';
 import QuizList from '../layouts/QuizList';
@@ -8,11 +9,12 @@ import { getQuizesByTags } from '../services/quiz';
 export default function Search() {
 
   const [searchString, setSearchString] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
-    const urlSearchParam = new URLSearchParams(window.location.search).get('q');
+    const urlSearchParam = new URLSearchParams(location.search).get('q');
     setSearchString(urlSearchParam);
-  },[]);
+  },[location.search]);
 
   return (
     <>
