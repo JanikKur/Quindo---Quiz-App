@@ -33,7 +33,7 @@ router.put('/unfavorize/:id', validateUserToken, unfavorizeQuiz);
 router.get('/validate', validateUserToken, validate);
 
 //LOGOUT
-router.delete('/logout/:id', logout);
+router.delete('/logout', logout);
 
 //LOGOUT
 router.delete('/id/:id', validateUserToken, deleteUser);

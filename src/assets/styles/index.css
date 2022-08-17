@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: "AppleGothic",Arial, Helvetica, sans-serif;
+    background-color: rgb(200,200,200);
+}
+main{
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 100;
+}
+h1{
+    font-size: 25px;
+}
+h2{
+    text-align: center;
+    margin-top: 40px;
+}
+h3{
+    text-align: center;
+    width: 80%;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+button{
+    color: black;
+    background: none;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}

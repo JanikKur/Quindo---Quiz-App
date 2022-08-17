@@ -10,11 +10,11 @@ const router = express.Router();
 //GET ALL
 router.get('/', pagination, getAllQuizes);
 
-//GET BY IP
+//GET BY ID
 router.get('/id/:id', getQuizById);
 
 //GET BY IDS
-router.get('/ids/:ids', [validateUserToken, pagination], getQuizesByIds);
+router.get('/ids/:ids', pagination, getQuizesByIds);
 
 //GET BY AUTHOR
 router.get('/author/:author', pagination, getQuizesByAuthor);

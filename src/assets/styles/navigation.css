@@ -1,0 +1,60 @@
+.main-navigation{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 0px 5px;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(128,128,128);
+    background-color: rgb(200,200,200);
+    z-index: 500;
+}
+.main-navigation .logo{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+.main-navigation .logo label{
+    font-size: 30px;
+    cursor: pointer;
+}
+.navigation-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.navigation-links a{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navigation-link{
+    background: none;
+    border: none;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    height: fit-content;
+    width: fit-content;
+}
+.navigation-link .icon{
+    height: 30px;
+    width: 30px;
+}
+.user-image{
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 100%;
+}

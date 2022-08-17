@@ -14,8 +14,27 @@ module.exports.getAllQuizes = async (req, res) => {
 //GET BY IP
 module.exports.getQuizById = async (req, res) => {
     try {
-        const quiz = await Quiz.findOne({ id: req.params.id });
-        res.status(200).json({ quiz });
+        const quiz = await Quiz.aggregate([{
+            $lookup: {
+                from: 'users',
+                localField: 'author',
+                foreignField: 'id',
+                as: 'author'
+            }
+        },
+        {
+            $match: { id: req.params.id }
+        },
+        {
+            $project: {
+                "author.password": 0,
+                "author.email": 0,
+                "author.profileImage": 0,
+                "author.favorites": 0,
+            }
+        }
+        ]).exec();
+        res.status(200).json({ quiz: quiz[0] });
     }
     catch (err) {
         res.status(500).json({ msg: err });
@@ -48,7 +67,7 @@ module.exports.getQuizesByAuthor = async (req, res) => {
 //GET BY TAGS
 module.exports.getQuizesByTags = async (req, res) => {
     try {
-        const tags = JSON.parse(req.params.ids);
+        const tags = JSON.parse(req.params.tags);
         const quizes = await Quiz.find({ tags: { $in: tags } }).skip(req.skipIndex).limit(req.limit);
         res.status(200).json({ quizes });
     }
@@ -71,6 +90,9 @@ module.exports.updateQuizById = async (req, res) => {
 //ADD
 module.exports.addQuiz = async (req, res) => {
     try {
+        console.log('====================================');
+        console.log(req.body);
+        console.log('====================================');
         const quiz = await Quiz.create({ ...req.body, author: req.user.id });
         res.status(201).json({ quiz });
     }

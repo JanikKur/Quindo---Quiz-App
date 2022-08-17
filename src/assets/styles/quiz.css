@@ -1,0 +1,195 @@
+.quiz-interaction-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.favourite-button{
+    border: none;
+    margin: 0;
+    background: none;
+    padding: 0;
+}
+.quiz-interaction-buttons .icon{
+    height: 25px;
+    width: 25px;
+}
+.title-section{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+.quiz-title{
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+    margin: 0px;
+    margin-top: 20px;
+}
+.quiz-author{
+    width: fit-content;
+    margin: 0px;
+    color: rgb(132,132,132);
+}
+.quiz-game{
+    width: 90%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.quiz-index{
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0px;
+    overflow-x: auto;
+}
+.index-button{
+    border: none;
+    border-right: 1px solid rgb(128,128,128);
+    border-radius: 0px;
+    height: 100%;
+    min-width: 20px;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+    margin: 0;
+}
+.index-button.active{
+    background-color: rgb(128,128,128);
+}
+.index-button.correct{
+    border: 2px solid rgb(16, 110, 12);
+}
+.index-button.false{
+    border: 2px solid rgb(201, 30, 30);
+}
+.question-box{
+    width: 100%;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+}
+.question{
+    width: 100%;
+    min-height: fit-content;
+    text-align: justify;
+    border-bottom: 1px solid rgb(128,128,128);
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 10px;
+}
+.answers{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.answers .submit-button{
+    margin-top: 20px;
+}
+.answers .answer-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.answers .answer-wrapper input[type='radio']{
+    appearance: none;
+    border-radius: 100%;
+    box-shadow: 0 0 1px 1px rgb(128,128,128);
+    cursor: pointer;
+    display: block;
+    background: none;
+    height: 15px;
+    width: 15px;
+    margin: 0;
+}
+.answers .text-input{
+    width: 100%;
+    height: 100px;
+    border: 1px solid rgb(128,128,128);
+    padding: 5px;
+    max-width: 100%;
+}
+.answers .text-input:focus{
+    border: 2px solid rgb(248, 163, 36);
+    outline: none
+}
+.answers .answer-wrapper input[type='checkbox']{
+    appearance: none;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 1px rgb(128,128,128);
+    cursor: pointer;
+    display: block;
+    background: none;
+    height: 15px;
+    width: 15px;
+    margin: 0;
+}
+.answers .answer-wrapper input.correct{
+    box-shadow: 0 0 1px 1px rgb(16, 110, 12);
+}
+.answers .answer-wrapper input:checked{
+    background-color: black;
+    border: 1px solid white;
+}
+.answer-wrapper label{
+    flex: 1;
+    margin: 0;
+    text-align: left;
+}
+.quiz-answers{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.quiz-statistics{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+.quiz-statistics p{
+    margin: 0;
+}
+.correct-answer-percentage{
+    height: 150px;
+    width: 150px !important;
+}
+.answers-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+.answers-text p{
+    margin: 5px;
+    overflow-wrap: break-word;
+}

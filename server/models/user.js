@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         default: '/images/standardUser.png'
     },
-    favourites:[{
+    favorites:[{
         type: String,
         required: false,
         trim: true

@@ -1,0 +1,111 @@
+.add-quiz-form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.add-quiz-form .questions-wrapper, .answers-wrapper{
+    width: 100%;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+.add-quiz-form .answer-input{
+    flex: 1;
+    height: 100%;
+}
+.add-quiz-form .add-answer-button{
+    height: 100%;
+    width: 50px;
+    margin: 0;
+}
+.answers-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 50px;
+    border: none;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+    justify-content: flex-start;
+    margin: auto;
+}
+.answer-isCorrect{
+    height: 100%;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.answer-isCorrect label{
+    text-align: center;
+}
+.questions-wrapper select{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(128,128,128);
+    border-top: 1px solid rgb(128,128,128);
+    border-radius: 0px;
+    height: 30px;
+}
+.question-title{
+    border-radius: 6px 6px 0px 0px;
+}
+.add-question-button{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+.add-quiz .answer-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+}
+.add-quiz .answer-wrapper .delete-button{
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+}
+.add-quiz .answer{
+    flex: 1;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+    text-align: left;
+    padding: 10px;
+    overflow-wrap: break-word;
+    margin: 0;
+}
+.add-quiz .answer.correct{
+    border-color: rgb(16, 110, 12);
+}
+.add-quiz .answer.false{
+    border-color: rgb(201, 30, 30);
+}
+.add-quiz .answers{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.add-quiz .question{
+    border: 1px solid rgb(128, 128, 128);
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.add-quiz .questions{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(128,128,128);
+    width: 90%;
+    gap: 5px;
+}

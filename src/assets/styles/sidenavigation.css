@@ -1,0 +1,94 @@
+.side-navigation-wrapper{
+    position: fixed;
+    z-index: 1000;
+    width: 0vw;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: width 0.25s ease-in-out;
+}
+.side-navigation-wrapper.active{
+    width: 100vw;
+}
+.side-navigation{
+    height: 100%;
+    width: 70%;
+    max-height: 100vh;
+    min-width: 200px;
+    max-width: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0px;
+    position: relative;
+}
+.side-navigation .close-button{
+    background: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border: none;
+    font-size: 20px;
+    color: rgba(128,128,128, .5);
+}
+.user-informations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    height: fit-content;
+}
+.user-informations .user-image{
+    height: 125px;
+    width: 125px;
+    object-fit: contain;
+    cursor: inherit;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    box-shadow: 0px -5px 5px rgba(61, 61, 61, 0.1) inset;
+}
+.links .link{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px solid rgb(128,128,128); 
+    padding: 20px 20px;
+    gap: 20px;
+}
+.link label{
+    height: fit-content;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.link .link-icon{
+    height: 20px;
+    width: 20px;
+    align-self: center;
+}
+.link:last-child{
+    border-bottom: 1px solid rgb(128,128,128); 
+}
+.logout-button{
+    color: rgb(165, 14, 14);
+    border: none;
+    margin-top: 10px;
+}
