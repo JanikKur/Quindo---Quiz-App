@@ -26,21 +26,33 @@ export default function Quiz() {
 
   useEffect(() => {
     const quizID = new URLSearchParams(window.location.search).get('id');
+    
     getQuizById({id: quizID}).then(response => {
       const quiz = response.data.quiz;
-      quiz.questions = shuffle(quiz.questions);
-      quiz.questions.map(question => {return {...question, answers: shuffle(question.answers)}}); //Randomize Answer Position
+
+      quiz.questions = randomizeQuestions(quiz.questions);
       setQuizData(quiz);
-      const correctAnswersTemp = [];
-      quiz.questions.forEach(question => {
-        const correctQuestionAnswers = question.answers.filter(answer => answer.isTrue);
-        correctAnswersTemp.push(correctQuestionAnswers);
-      });
+
+      setCorrectAnswers(getCorrectAnswers(quiz.questions));
       setAuthor(quiz.author[0]?.username);
-      setCorrectAnswers(correctAnswersTemp);
       setLoading(false);
     });
   },[]);
+
+  function getCorrectAnswers(questions){
+    const correctAnswersTemp = [];
+    questions.forEach(question => {
+      const correctQuestionAnswers = question.answers.filter(answer => answer.isTrue);
+      correctAnswersTemp.push(correctQuestionAnswers);
+    });
+    return correctAnswersTemp;
+  }
+
+  function randomizeQuestions(questions){
+    questions = shuffle(questions);
+    questions.map(question => {return {...question, answers: shuffle(question.answers)}}); //Randomize Answer Position
+    return questions;
+  }
 
   let submitQuiz = () => {
     alert('Das Quiz wurde Abgeschlossen');
