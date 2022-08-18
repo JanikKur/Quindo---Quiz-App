@@ -57,6 +57,7 @@ export default function QuizList({title, method, options, limit = 4, fallBackTex
           {
             limit && !loading && moreResponse ? <button className='show-more-button' onClick={() => setPage(page + 1)}>Mehr anzeigen</button> : ''
           }
+          
       </section>
   )
 }
