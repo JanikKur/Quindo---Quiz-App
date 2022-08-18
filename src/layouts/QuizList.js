@@ -11,16 +11,24 @@ export default function QuizList({title, method, options, limit = 4, fallBackTex
   const [moreResponse, setMoreResponse] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    updateQuizes();
+    if(page > 1){
+      setLoading(true);
+      updateQuizes();
+    }
   },[page]);
 
-  function updateQuizes(){
+  useEffect(() => {
+    setLoading(true);
+    updateQuizes(1);
+  },[options.tags]);
+
+
+  function updateQuizes(reset){
     method({...options, page, limit}).then(response => {
       if(!response.data.quizes.length){
         setMoreResponse(false);
       }
-      setQuizes(prev => [...quizes, ...response.data.quizes]);
+      reset ? setQuizes([...response.data.quizes]) : setQuizes(prev => [...prev, ...response.data.quizes]);
       setLoading(false)
     });
   }

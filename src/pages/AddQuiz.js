@@ -32,7 +32,6 @@ export default function AddQuiz() {
         try{
             await addQuizService(quiz);
             alert("Das Quiz wurde erfolgreich hinzugefügt");
-            //window.location.reload();
         }
         catch(e){
             alert("Leider gab es einen Fehler, bitte versuche es erneut");
