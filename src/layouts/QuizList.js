@@ -18,6 +18,7 @@ export default function QuizList({title, method, options, limit = 4, fallBackTex
     }
 
     return () => {
+      console.log("W");
       canceled = true;
     }
   },[page]);
@@ -32,17 +33,18 @@ export default function QuizList({title, method, options, limit = 4, fallBackTex
   },[options.tags]);
 
 
-  function updateQuizes(reset, canceled){
-    method({...options, page, limit}).then(response => {
-      if(canceled){
-        return;
-      }
+  async function updateQuizes(reset, canceled){
+    try{
+      const response = await method({...options, page, limit});
       if(!response.data.quizes.length){
         setMoreResponse(false);
       }
-      reset ? setQuizes([...response.data.quizes]) : setQuizes(prev => [...prev, ...response.data.quizes]);
+      console.log(canceled);
+      if(!canceled){
+        reset ? setQuizes([...response.data.quizes]) : setQuizes(prev => [...prev, ...response.data.quizes]);
+      }
       setLoading(false)
-    });
+    }catch(err){}
   }
 
   return (
