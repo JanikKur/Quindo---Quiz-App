@@ -16,7 +16,7 @@ export default function SideNavigation({ visibility, setVisibility }) {
             <nav className='side-navigation' onClick={e => e.stopPropagation()}>
                 <button className='close-button' onClick={() => setVisibility(false)}>X</button>
                 <div className='user-informations'>
-                    <img className='user-image' alt={currentUser.username} src={`${process.env.REACT_APP_BACKEND_URL}${currentUser.profileImage}`}/>
+                    <img className='user-image' alt={currentUser.username} src={`${currentUser.profileImage}`}/>
                     <h3>{currentUser.username}</h3>
                 </div>
                 <div className='links'>

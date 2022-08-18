@@ -58,14 +58,7 @@ app.get('*', function(req, res){
 const start = async () => {
     try {
         await connect(process.env.MONGO_URL);
-
-        const httpsServer = https.createServer({
-            key: fs.readFileSync(path.join(__dirname + '/certificates/server.key'), 'utf8'),
-            cert: fs.readFileSync(path.join(__dirname + '/certificates/server.cert'), 'utf8'),
-        }, app);
-
-        app.listen(5080, () => console.log(`HTTP Server is listening on port ${5080}`));
-        httpsServer.listen(PORT, () => console.log(`HTTPS Server is listening on port ${PORT}`));
+        app.listen(PORT, () => console.log(`HTTP Server is listening on port ${PORT}`));
     }
     catch (err) {
         console.log(err);

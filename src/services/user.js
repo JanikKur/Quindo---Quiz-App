@@ -1,5 +1,5 @@
 import axios from 'axios';
-const backendLink = process.env.REACT_APP_BACKEND_URL + '/api/v1';
+const backendLink = '/api/v1';
 
 export async function validateUser() {
     return axios.get(`${backendLink}/user/validate`, {}, { withCredentials: true });

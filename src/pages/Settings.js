@@ -32,7 +32,7 @@ export default function Settings() {
     return (
         <main>
             <div className='user-informations'>
-                <img className='user-image' alt={currentUser.username} ref={previewImageRef} onClick={() => userImageRef.current.click()} src={`${process.env.REACT_APP_BACKEND_URL}${currentUser.profileImage}`} />
+                <img className='user-image' alt={currentUser.username} ref={previewImageRef} onClick={() => userImageRef.current.click()} src={`${currentUser.profileImage}`} />
                 <h3>{currentUser.username}</h3>
             </div>
             <form className='user-form' onSubmit={updateUserData}>

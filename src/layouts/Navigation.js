@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className='navigation-links'>
             {currentUser && <Link to='/add' className='navigation-link'><GrFormAdd className='icon'/></Link>}
             <button className='navigation-link' onClick={() => setShowSearch(prev => !prev)}><AiOutlineSearch className='icon'/></button>
-            {currentUser ?  <img className='user-image' alt={currentUser.username} onClick={() => setShowSideNav(prev => !prev)} src={`${process.env.REACT_APP_BACKEND_URL}${currentUser.profileImage}`}/>  : <Link to='/login'>Anmelden</Link>}
+            {currentUser ?  <img className='user-image' alt={currentUser.username} onClick={() => setShowSideNav(prev => !prev)} src={`${currentUser.profileImage}`}/>  : <Link to='/login'>Anmelden</Link>}
         </div>
     </nav>
         <SearchContainer visibility={showSearch}/>

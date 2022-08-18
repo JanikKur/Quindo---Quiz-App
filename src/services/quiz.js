@@ -1,5 +1,5 @@
 import axios from 'axios';
-const backendLink = process.env.REACT_APP_BACKEND_URL + '/api/v1';
+const backendLink = '/api/v1';
 
 export async function getAllQuizes({limit, page}){
     return axios.get(`${backendLink}/quiz?limit=${limit}&page=${page}`);
