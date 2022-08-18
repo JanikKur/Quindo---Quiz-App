@@ -11,20 +11,32 @@ export default function QuizList({title, method, options, limit = 4, fallBackTex
   const [moreResponse, setMoreResponse] = useState(true);
 
   useEffect(() => {
-    if(page > 1){
+    let canceled = false;
+    if(page > 1 && ! canceled){
       setLoading(true);
-      updateQuizes();
+      updateQuizes(0, canceled);
+    }
+
+    return () => {
+      canceled = true;
     }
   },[page]);
 
   useEffect(() => {
+    let canceled = false;
     setLoading(true);
-    updateQuizes(1);
+    updateQuizes(1, canceled);
+    return () => {
+      canceled = true;
+    }
   },[options.tags]);
 
 
-  function updateQuizes(reset){
+  function updateQuizes(reset, canceled){
     method({...options, page, limit}).then(response => {
+      if(canceled){
+        return;
+      }
       if(!response.data.quizes.length){
         setMoreResponse(false);
       }
